@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools==75.8.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "airmouse-ai"
+version = "1.10.0"
+description = "Offline Windows gesture assistant for reading papers"
+requires-python = ">=3.11,<3.13"
+dependencies = [
+  "numpy==2.2.6",
+  "opencv-contrib-python==4.11.0.86",
+  "mediapipe==0.10.33",
+  "PySide6-Essentials==6.8.3",
+]
+
+[project.optional-dependencies]
+dev = ["pytest==8.3.5", "pyinstaller==6.12.0", "psutil==7.0.0"]
+
+[project.gui-scripts]
+AirMouseAI = "airmouse_ai.app:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
